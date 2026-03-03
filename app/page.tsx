@@ -14,7 +14,7 @@ export default function Home() {
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-black">
         <div>Main</div>
         <Link href="/configuraciones">Admin</Link>
-        <Image src="https://tech.sparkfabrik.com/images/content/nextjs/nextjs-logo.jpg" alt="Vercel Logo" width={width} height={height} />
+        <Image src="next.svg" alt="Vercel Logo" width={width} height={height} />
         <h1>Contador: {contador}</h1>
         <button onClick={() => setContador(contador + 1)}>Incrementar</button>
       </main>

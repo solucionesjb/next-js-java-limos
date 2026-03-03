@@ -1,5 +1,6 @@
 "use client";
-import { SignInAction } from "@/actions/auth/authAction";
+
+import { SignInAction } from "@/actions/auth";
 import Checkbox from "@/components/form/input/Checkbox";
 import Input from "@/components/form/input/InputField";
 import Label from "@/components/form/Label";
@@ -7,12 +8,13 @@ import Button from "@/components/ui/button/Button";
 // import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@icons";
 import Link from "next/link";
 import { useState } from "react";
+import { useActionState } from 'react'
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
-  const signInRequest = SignInAction.bind(null, 123);
+  const [state, action, pending] = useActionState(SignInAction, undefined)
 
   return (
     <div className="flex flex-col flex-1 w-full p-10">
@@ -79,7 +81,7 @@ export default function SignInForm() {
                 </span>
               </div>
             </div>
-            <form action={signInRequest}>
+            <form action={action}>
               <div className="space-y-6">
                 <div>
                   <Label>
