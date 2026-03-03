@@ -11,7 +11,7 @@ export default function Home() {
   const height = 200;
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans ">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 ">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-black">
         <div>Main</div>
         <Link href="/configuraciones">Admin</Link>
         <Image src="next.svg" alt="Vercel Logo" width={width} height={height} />
@@ -31,7 +31,7 @@ export function Home2() {
   const height = 200;
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans ">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 ">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-black">
         <div>Main</div>
         <Link href="/configuraciones">Admin</Link>
         <Image src="https://tech.sparkfabrik.com/images/content/nextjs/nextjs-logo.jpg" alt="Vercel Logo" width={width} height={height} />
