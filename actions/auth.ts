@@ -1,3 +1,5 @@
+'use server';
+
 import { SignupFormSchema, FormState } from '@/lib/definitions'
 import { createSession } from '@/lib/session'
 import SessionModel from '@/model/SessionModel'

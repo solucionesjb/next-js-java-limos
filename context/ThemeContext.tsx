@@ -15,6 +15,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const [test, setTest] = useState<boolean>(true);
   const [theme, setTheme] = useState<Theme>("light");
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
 
@@ -36,8 +37,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
         document.documentElement.classList.remove("dark");
       }
     }
+    setTest((prev) => !prev); // Toggle test state to trigger re-render
   }, [theme, isInitialized]);
 
+  useEffect(() => {
+    console.log(`Theme changed to: ${test}`);
+  }, [test]);
+
+  
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };

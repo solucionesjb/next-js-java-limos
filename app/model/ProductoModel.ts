@@ -1,1 +1,0 @@
-export default interface ProductoModel { params: { id: string, texto: string } }

@@ -21,7 +21,6 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@icons": ["./icons/index.tsx"],
     }
   },
   "include": [

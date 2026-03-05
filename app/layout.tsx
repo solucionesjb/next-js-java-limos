@@ -3,9 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '@/context/ThemeContext';
 import { SidebarProvider } from '@/context/SidebarContext';
-// import { decrypt } from "@/lib/session";
-// import { cookies } from 'next/headers'
-// import { redirect } from 'next/navigation'
+import { Providers } from "@/components/providers/Providers";
+//  import { decrypt } from "@/lib/session";
+//  import { cookies } from 'next/headers'
+//  import { redirect } from 'next/navigation'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export default async function RootLayout({
   // const session = await decrypt(cookie)
 
   // if (!session) {
-  //   redirect('/signin')
+  //    redirect('/signin')
   // }
 
   return (
@@ -40,9 +41,11 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-gray-900`}
       >
-        <ThemeProvider>
-          <SidebarProvider>{children}</SidebarProvider>
-        </ThemeProvider>
+        <Providers>
+          <ThemeProvider>
+            <SidebarProvider>{children}</SidebarProvider>
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

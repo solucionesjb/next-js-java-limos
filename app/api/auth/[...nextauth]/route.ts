@@ -1,14 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
-import { z } from 'zod';
 
 export const authOptions: NextAuthOptions = {
-    pages: {
-        signIn: '/singin',
-        newUser: '/auth/new-account',
-    },
-
     providers: [
         GithubProvider({
             clientId: process.env.GITHUB_ID!,
@@ -18,16 +12,12 @@ export const authOptions: NextAuthOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                email: { label: "Username", type: "text", placeholder: "jsmith" },
+                username: { label: "Username", type: "text", placeholder: "jsmith" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials) {
-                const parsedCredentials = z
-                    .object({ email: z.string().email(), password: z.string().min(6) })
-                    .safeParse(credentials);
-                const { email, password } = parsedCredentials.data ? parsedCredentials.data : { email: '', password: '' };
                 const user = { id: "1", name: "John Smith", email: "john@example.com" };
-                if (email === user.email && password === "password") {
+                if (credentials?.username === user.name && credentials?.password === "password") {
                     return user;
                 }
                 return null;
