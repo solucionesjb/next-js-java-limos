@@ -6,7 +6,6 @@ import { SidebarProvider } from '@/context/SidebarContext';
 import { Providers } from "@/components/providers/Providers";
 //  import { decrypt } from "@/lib/session";
 //  import { cookies } from 'next/headers'
-//  import { redirect } from 'next/navigation'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
