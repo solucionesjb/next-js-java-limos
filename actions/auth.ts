@@ -5,7 +5,7 @@ import { createSession } from '@/lib/session'
 import SessionModel from '@/model/SessionModel'
 import { redirect } from 'next/navigation'
 
-export async function SignInAction(state: FormState, formData: FormData) {
+export async function AuthAction(state: FormState, formData: FormData) {
   // Validate form fields
   const validatedFields = SignupFormSchema.safeParse({
     email: formData.get('email'),
